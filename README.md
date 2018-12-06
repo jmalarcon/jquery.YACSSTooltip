@@ -10,8 +10,6 @@ It uses the text in the `title` attribute first or the text in `alt` in case the
 
 It takes into account the limits of the viewport so that it doesn't overflow through the right or the bottom. 
 
-It's not activated in mobile or touch devices, since in that case no tooltip is going to be shown anyway.
-
 ## Usage
 
 You can download the minified, ready for production version of the plugin (in the `dist` folder of this repo) and just reference it from your HTML, after jQuery:
