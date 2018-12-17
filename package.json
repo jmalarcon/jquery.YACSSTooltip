@@ -2,7 +2,7 @@
   "name": "jquery.yacssooltip",
   "version": "1.0.1",
   "description": "Yet Another CSS Tooltip jQuery Plugin - Adds a CSS tooltip for the images in a jQuery selection set",
-  "main": "jquery.YACSSTooltip.js",
+  "main": "dist/jquery.YACSSTooltip.min.js",
   "scripts": {
     "compressjs": "uglifyjs ./src/jquery.YACSSTooltip.js -c --comments --source-map \"root='/', url='jquery.YACSSTooltip.min.js.map'\"  -o ./dist/jquery.YACSSTooltip.min.js",
     "postcompressjs": "cross-var \"replace -s \"@VERSION@\" $npm_package_version ./dist/jquery.YACSSTooltip.min.js\"",
@@ -15,10 +15,14 @@
   },
   "keywords": [
     "jquery",
+    "jquery-plugin",
     "css",
     "tooltip"
   ],
-  "author": "José M. Alarcón",
+  "author": {
+      "name": "José M. Alarcón",
+      "url": "https://www.jasoft.org"
+    },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jmalarcon/jquery.YACSSTooltip/issues"
