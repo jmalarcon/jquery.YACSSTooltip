@@ -1,6 +1,6 @@
 {
   "name": "jquery.yacsstooltip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Yet Another CSS Tooltip jQuery Plugin - Adds a CSS tooltip for the images in a jQuery selection set",
   "main": "dist/jquery.YACSSTooltip.min.js",
   "scripts": {

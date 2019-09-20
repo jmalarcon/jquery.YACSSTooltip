@@ -1,4 +1,4 @@
-/** 
+/**
 * @license MIT
 * Yet Another CSS Tooltip jQuery Plugin - Adds a CSS tooltip for the images in a jQuery selection set
 * version @VERSION@
@@ -9,11 +9,11 @@
 (function($){
     $.fn.extend({
         addTooltip: function() {
-            /*  This element will be the tooltip that is shown. 
+            /*  This element will be the tooltip that is shown.
             Is there only one per page.
             It has a "weird" id to avoid collisions */
             var idTT = 'CSSTooltip' + Math.floor(Math.random()*(9999-999+1)+999);
-            $('<div id="' + idTT + '" class="YACSSTooltip" style="display: none; position: absolute; border: 1px solid #333; background-color: #161616; border-radius: 5px; padding: 5px; color: #fff; font-size: 12px Arial;max-width:250px;line-break:auto;word-break:normal;word-spacing:0px;white-space:normal;text-align:center;overflow-wrap:normal;"></div>').appendTo('body');
+            $('<div id="' + idTT + '" class="YACSSTooltip" style="display: none; position: absolute; border: 1px solid #333; background-color: #161616; border-radius: 5px; padding: 5px; color: #fff; font-size: 12px Arial;max-width:250px;line-break:auto;word-break:break-all;word-spacing:0px;white-space:normal;text-align:center;overflow-wrap:normal;"></div>').appendTo('body');
 
             var ttShown = false;
             this.hover(//On hover...
@@ -24,7 +24,7 @@
                         ttText = title || alt;
                     if (!ttText)    //If there's no text to be shown in the tooltip just don't do anything...
                         return;
-                    
+
                     //Remove title to prevent native tooltip to be shown, keeping old title to be restored after hiding CSTooltip
                     if(title)
                         $(this).removeAttr('title').data('title', title);
@@ -41,7 +41,7 @@
                     if (title)
                         $(this).attr('title', title).data('title', '');
                 }).mousemove(function (e) {//On mouse move position the tooltip next to the pointer
-                    
+
                     if (!ttShown) return;
                     //Get X coordinates
                     var mousex = e.pageX + 20;
