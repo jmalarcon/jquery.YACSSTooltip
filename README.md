@@ -2,13 +2,13 @@
 
 Yet Another CSS Tooltip jQuery Plugin - Adds a CSS tooltip for the images in a jQuery selection set.
 
-This small plugin (866 bytes minified and gzipped) adds a visible tooltip to any element with a `title` or `alt` attribute:
+This small plugin (857 bytes minified and gzipped) adds a visible tooltip to any element with a `title` or `alt` attribute:
 
 ![YACSSTooltip in action](YACSSTooltip.gif)
 
-It uses the text in the `title` attribute first or the text in `alt` in case the title is not available. To prevent the system's native tooltip to be shown, it disables the `title` if present and restores it again after the CSS Tooltip has been hidden.
+It uses the text in the `title` attribute first or the text in `alt` in case the title is not available. To prevent the system's native tooltip to be shown, it disables the `title` if present, and restores it again after the CSS Tooltip has been hidden.
 
-It takes into account the limits of the viewport so that it doesn't overflow through the right or the bottom. 
+It takes into account the limits of the viewport so that it doesn't overflow through the right or the bottom. Takes into account long lines and wraps them.
 
 ## Usage
 
@@ -19,7 +19,7 @@ You can download the minified, ready for production version of the plugin (in th
 <script src="js/jquery.YACSSTooltip.min.js"></script>
 ```
 
-Now, just select the elements you want to add the tooltip to and call the `addTooltip` method:
+Now, just select the elements you want to add the tooltip to and call the `addTooltip` method. For example:
 
 ```javascript
 $(function() {
@@ -43,15 +43,15 @@ That's it!
 
 ## Look&Feel
 
-Only one hidden element at the end of the body is used to show as many tooltips as are needed, so it doesn't fill your DOM. 
+Only one hidden element at the end of the body is used to show as many tooltips as are needed, so it doesn't fill your DOM.
 
-This element has a random id to prevent collisions, and defines the default look&feel as an inline style.
+This element has a random id to prevent collisions, and defines the default look&feel as an inline style so that you don't need to add any CSS files to your pages.
 
-It has a `.YACSSTooltip` applied, so you can easily change any default property of the tooltip by adding a CSS selector for that class. You should use the `!important` modifier to override the inline styles. For example:
+However, it has a `.YACSSTooltip` applied, so you can easily change any default property of the tooltip by adding a CSS selector for that class. **You must use the `!important` modifier** to override the inline styles. For example:
 
 ```css
 .YACSSTooltip {
-    border-radius: 0;
+    border-radius: 0 !important;
 }
 ```
 
@@ -68,4 +68,5 @@ npm run build
 and it will generate the minified version and the debugging map inside the `dist` folder. It will automatically add the version in the package to the license comments in the file.
 
 ## License
+
 This software is released under the permissive MIT license. Check the details [here](https://github.com/jmalarcon/jquery.YACSSTooltip/blob/master/LICENSE).
