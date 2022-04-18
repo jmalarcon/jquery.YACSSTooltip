@@ -10,15 +10,17 @@
     $.fn.extend({
         addTooltip: function() {
             /*  This element will be the tooltip that is shown.
-            Is there only one per page.
-            It has a "weird" id to avoid collisions */
-            var idTT = 'CSSTooltip' + Math.floor(Math.random()*(9999-999+1)+999);
-            $('<div id="' + idTT + '" class="YACSSTooltip" style="display: none; position: absolute; border: 1px solid #333; background-color: #161616; border-radius: 5px; padding: 5px; color: #fff; font-size: 12px Arial;max-width:250px;line-break:auto;word-break:normal;word-break:break-word;overflow-wrap: break-word;word-spacing:0px;white-space:normal;text-align:center;overflow-wrap:normal;"></div>').appendTo('body');
+                There is only one per page.
+             */
+            if (window.jQuery_YACSSTooltip_idTT == undefined) {
+                window.jQuery_YACSSTooltip_TT =  $('<div id="' + 'CSSTooltip' + Math.floor(Math.random()*(9999-999+1)+999) + '" class="YACSSTooltip" style="display: none; position: absolute; border: 1px solid #333; background-color: #161616; border-radius: 5px; padding: 5px; color: #fff; font-size: 12px Arial;max-width:250px;line-break:auto;word-break:normal;word-break:break-word;overflow-wrap: break-word;word-spacing:0px;white-space:normal;text-align:center;overflow-wrap:normal;"></div>');
+                $("body").append(window.jQuery_YACSSTooltip_TT);
+            }
 
             var ttShown = false;
             this.hover(//On hover...
                 function() {
-                    //The "alt" or "title" attribute values are used for the tooltip, in that order of precedence
+                    //The "title" or "alt" attribute values are used for the tooltip, in that order of precedence (first "title" if available, then "alt")
                     var alt = $(this).attr('alt'),
                         title = $(this).attr('title'),
                         ttText = title || alt;
@@ -30,12 +32,12 @@
                         $(this).removeAttr('title').data('title', title);
                     //Add tooltip
                     ttShown = true;
-                    $('#' + idTT).text(ttText).fadeIn('slow');
+                    window.jQuery_YACSSTooltip_TT.text(ttText).show();
                 },
                 //On mouse exit
                 function() {
                     ttShown = false;
-                    $('#' + idTT).hide();    //Hide the tooltip
+                    window.jQuery_YACSSTooltip_TT.hide();    //Hide the tooltip
                     //Restore the title if needed
                     var title = $(this).data('title');
                     if (title)
@@ -48,7 +50,7 @@
                     //Get Y coordinates
                     var mousey = e.pageY + 10;
                     //Check if it's inside the boundaries
-                    var $tooltip = $('#' + idTT),
+                    var $tooltip = window.jQuery_YACSSTooltip_TT,
                         wW = $(window).scrollLeft() + $(window).width(),
                         wH = $(window).scrollTop() + $(window).height();
                     if(mousex + $tooltip.outerWidth() > wW)
@@ -56,7 +58,7 @@
                     if(mousey + $tooltip.outerHeight() > wH)
                         mousey = e.pageY - $tooltip.outerHeight() -10;
                     //Show tooltip
-                    $('#' + idTT).css({
+                    window.jQuery_YACSSTooltip_TT.css({
                         top: mousey,
                         left: mousex
                     })
