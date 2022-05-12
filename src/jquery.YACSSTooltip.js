@@ -12,7 +12,7 @@
             /*  This element will be the tooltip that is shown.
                 There is only one per page.
              */
-            if (window.jQuery_YACSSTooltip_idTT == undefined) {
+            if (window.jQuery_YACSSTooltip_TT == undefined) {
                 window.jQuery_YACSSTooltip_TT =  $('<div id="' + 'CSSTooltip' + Math.floor(Math.random()*(9999-999+1)+999) + '" class="YACSSTooltip" style="display: none; position: absolute; border: 1px solid #333; background-color: #161616; border-radius: 5px; padding: 5px; color: #fff; font-size: 12px Arial;max-width:250px;line-break:auto;word-break:normal;word-break:break-word;overflow-wrap: break-word;word-spacing:0px;white-space:normal;text-align:center;overflow-wrap:normal;"></div>');
                 $("body").append(window.jQuery_YACSSTooltip_TT);
             }
