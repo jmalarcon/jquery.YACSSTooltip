@@ -1,12 +1,12 @@
 {
   "name": "jquery.yacsstooltip",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Yet Another CSS Tooltip jQuery Plugin - Adds a CSS tooltip for the images in a jQuery selection set",
   "main": "dist/jquery.YACSSTooltip.min.js",
   "scripts": {
     "compressjs": "uglifyjs ./src/jquery.YACSSTooltip.js -c --comments --source-map \"root='/', url='jquery.YACSSTooltip.min.js.map'\"  -o ./dist/jquery.YACSSTooltip.min.js",
     "postcompressjs": "cross-var \"replace-in-file @VERSION@ $npm_package_version ./dist/jquery.YACSSTooltip.min.js\"",
-    "prebuild": "rimraf ./dist/**/*.*",
+    "prebuild": "rimraf --glob ./dist/**/*.*",
     "build": "npm run compressjs"
   },
   "repository": {
@@ -30,8 +30,8 @@
   "homepage": "https://github.com/jmalarcon/jquery.YACSSTooltip#readme",
   "devDependencies": {
     "cross-var": "^1.1.0",
-    "replace-in-file": "^6.3.2",
-    "rimraf": "^3.0.2",
-    "uglify-js": "^3.15.4"
+    "replace-in-file": "^8.3.0",
+    "rimraf": "^6.0.1",
+    "uglify-js": "^3.19.3"
   }
 }

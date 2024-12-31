@@ -17,6 +17,11 @@
                 $("body").append(window.jQuery_YACSSTooltip_TT);
             }
 
+			//Check if the tooltip handler has already been added to the element
+			if (this.data('tooltipHandlerAdded')) {
+				return this;	//Exit, returning the current element
+			}
+
             var ttShown = false;
             this.hover(//On hover...
                 function() {
@@ -63,7 +68,9 @@
                         left: mousex
                     })
                 });
-        return this;
+			//Mark the element as having the tooltip handler added
+			this.data('tooltipHandlerAdded', true);
+            return this;
         }
     });
 })(jQuery);
